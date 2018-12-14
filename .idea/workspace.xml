@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1bf7b0a2-5b22-4217-85d2-660d0b68c3d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
-    </list>
+    <list default="true" id="1bf7b0a2-5b22-4217-85d2-660d0b68c3d5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +12,7 @@
     <session id="637061296">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -46,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/Game.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -115,7 +114,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="211" y="52" width="1400" height="706" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -145,7 +143,7 @@
     <entry file="file://$PROJECT_DIR$/Game.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
         </state>
       </provider>
     </entry>
