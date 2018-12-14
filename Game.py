@@ -1,3 +1,5 @@
+#Sample Code
+
 import arcade
 
 # --- Set up the constants
