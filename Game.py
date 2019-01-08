@@ -1,17 +1,18 @@
 #Starting Code
 
 
-import Messingaroundstew
-import arcade
 import os
+import random
 
+import arcade
 
+import Character
 
 SCREEN_WIDTH = 1150
 SCREEN_HEIGHT = 950
 
 MOVEMENT_SPEED = 5
-
+hero = Character.Hero("name", "sex")
 
 class MyGame(arcade.Window):
     """ Main application class. """
@@ -28,18 +29,33 @@ class MyGame(arcade.Window):
         os.chdir(file_path)
 
         # Sprite lists
+        self.wall_list = None
 
 
     def setup(self):
+
         """ Set up the game and initialize the variables. """
 
         # initializing Sprite lists
-
+        hero.player_list = arcade.SpriteList()
+        self.wall_list = arcade.SpriteList()
         # Set the background color
-        arcade.set_background_color(arcade.color.AMAZON)
+        arcade.set_background_color(arcade.color.ANTI_FLASH_WHITE)
         self.view_left = 0
         self.view_bottom = 0
-
+        hero.player_sprite = arcade.Sprite("20181115_170016.jpg", 0.14)
+        hero.player_sprite.center_x = 64
+        hero.player_sprite.center_y = 270
+        hero.player_list.append(hero.player_sprite)
+        for x in range(200, 1650, 210):
+            for y in range(0, 1000, 64):
+                # Randomly skip a box so the player can find a way through
+                if random.randrange(5) > 0:
+                    wall = arcade.Sprite("20181115_170016.jpg", 0.14)
+                    wall.center_x = x
+                    wall.center_y = y
+                    self.wall_list.append(wall)
+        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, self.wall_list)
     def on_draw(self):
         """
         Render the screen.
@@ -49,34 +65,36 @@ class MyGame(arcade.Window):
         arcade.start_render()
 
         # Draw all the sprites.
+        self.wall_list.draw()
+        hero.player_list.draw()
 
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
 
-        #if key == arcade.key.UP:
-           # self.player_sprite.change_y = MOVEMENT_SPEED
-        #elif key == arcade.key.DOWN:
-        #    self.player_sprite.change_y = -MOVEMENT_SPEED
-        #elif key == arcade.key.LEFT:
-         #   self.player_sprite.change_x = -MOVEMENT_SPEED
-        #elif key == arcade.key.RIGHT:
-            #self.player_sprite.change_x = MOVEMENT_SPEED
+        if key == arcade.key.UP:
+            hero.player_sprite.change_y = MOVEMENT_SPEED
+        elif key == arcade.key.DOWN:
+            hero.player_sprite.change_y = -MOVEMENT_SPEED
+        elif key == arcade.key.LEFT:
+            hero.player_sprite.change_x = -MOVEMENT_SPEED
+        elif key == arcade.key.RIGHT:
+            hero.player_sprite.change_x = MOVEMENT_SPEED
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
 
-        #if key == arcade.key.UP or key == arcade.key.DOWN:
-        #    self.player_sprite.change_y = 0
-       # elif key == arcade.key.LEFT or key == arcade.key.RIGHT:
-           # self.player_sprite.change_x = 0
+        if key == arcade.key.UP or key == arcade.key.DOWN:
+            hero.player_sprite.change_y = 0
+        elif key == arcade.key.LEFT or key == arcade.key.RIGHT:
+            hero.player_sprite.change_x = 0
 
     def update(self, delta_time):
         """ Movement and game logic """
 
         # Call update on all sprites (The sprites don't do much in this
         # example though.)
-        #self.physics_engine.update()
+        hero.physics_engine.update()
 
 
 def main():
