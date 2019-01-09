@@ -43,10 +43,7 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.ANTI_FLASH_WHITE)
         self.view_left = 0
         self.view_bottom = 0
-        #hero.player_sprite = arcade.Sprite("20181115_170016.jpg", 0.04)
-        #hero.player_sprite.center_x = 64
-        #hero.player_sprite.center_y = 270
-        #hero.player_list.append(hero.player_sprite)
+
         for x in range(200, 1650, 210):
             for y in range(0, 1000, 64):
                 # Randomly skip a box so the player can find a way through
