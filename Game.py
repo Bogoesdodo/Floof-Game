@@ -37,24 +37,26 @@ class MyGame(arcade.Window):
         """ Set up the game and initialize the variables. """
 
         # initializing Sprite lists
-        hero.player_list = arcade.SpriteList()
+        #hero.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
         # Set the background color
         arcade.set_background_color(arcade.color.ANTI_FLASH_WHITE)
         self.view_left = 0
         self.view_bottom = 0
-        hero.player_sprite = arcade.Sprite("20181115_170016.jpg", 0.14)
-        hero.player_sprite.center_x = 64
-        hero.player_sprite.center_y = 270
-        hero.player_list.append(hero.player_sprite)
+        #hero.player_sprite = arcade.Sprite("20181115_170016.jpg", 0.04)
+        #hero.player_sprite.center_x = 64
+        #hero.player_sprite.center_y = 270
+        #hero.player_list.append(hero.player_sprite)
         for x in range(200, 1650, 210):
             for y in range(0, 1000, 64):
                 # Randomly skip a box so the player can find a way through
                 if random.randrange(5) > 0:
-                    wall = arcade.Sprite("20181115_170016.jpg", 0.14)
+                    wall = arcade.Sprite("20181115_170016.jpg", 0.04)
                     wall.center_x = x
                     wall.center_y = y
                     self.wall_list.append(wall)
+        hero.spriteDeclare(picture = "20181115_170016.jpg", size = 0.04, x = 64, y = 270)
+
         hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, self.wall_list)
     def on_draw(self):
         """
@@ -73,13 +75,13 @@ class MyGame(arcade.Window):
         """Called whenever a key is pressed. """
 
         if key == arcade.key.UP:
-            hero.player_sprite.change_y = MOVEMENT_SPEED
+            hero.player_sprite.change_y = hero.movementSpeed
         elif key == arcade.key.DOWN:
-            hero.player_sprite.change_y = -MOVEMENT_SPEED
+            hero.player_sprite.change_y = -hero.movementSpeed
         elif key == arcade.key.LEFT:
-            hero.player_sprite.change_x = -MOVEMENT_SPEED
+            hero.player_sprite.change_x = -hero.movementSpeed
         elif key == arcade.key.RIGHT:
-            hero.player_sprite.change_x = MOVEMENT_SPEED
+            hero.player_sprite.change_x = hero.movementSpeed
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
