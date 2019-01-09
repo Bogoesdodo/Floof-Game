@@ -13,7 +13,7 @@ SCREEN_HEIGHT = 950
 
 MOVEMENT_SPEED = 5
 hero = Character.Hero("name", "sex")
-text1 = displayText.displayText("superdupercomputer")
+text1 = displayText.displayText("superdupercomputer", 870, 870)
 #text1.spriteDeclare("textbox.png", 1, 870, 70)
 class MyGame(arcade.Window):
     """ Main application class. """
