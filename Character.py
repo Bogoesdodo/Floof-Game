@@ -30,9 +30,9 @@ class Hero(object):
         self.physics_engine = None
 
     def spriteDeclare(self, picture, size, x, y):
-        player_list = arcade.SpriteList()
-        player_sprite = arcade.Sprite(picture,size)
-        player_sprite.center_x = x
-        player_sprite.center_y = y
-        player_list.append(player_sprite)
+        self.player_list = arcade.SpriteList()
+        self.player_sprite = arcade.Sprite(picture,size)
+        self.player_sprite.center_x = x
+        self.player_sprite.center_y = y
+        self.player_list.append(self.player_sprite)
 
