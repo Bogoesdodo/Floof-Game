@@ -5,7 +5,7 @@ import os
 import random
 import displayText
 import arcade
-
+import Decor
 import Character
 
 SCREEN_WIDTH = 1150
@@ -14,7 +14,7 @@ SCREEN_HEIGHT = 950
 MOVEMENT_SPEED = 5
 hero = Character.Hero("name", "sex")
 text1 = displayText.displayText("superdupercomputer", 870, 870)
-#text1.spriteDeclare("textbox.png", 1, 870, 70)
+wall = Decor.Decor("tree")
 class MyGame(arcade.Window):
     """ Main application class. """
 
@@ -30,32 +30,21 @@ class MyGame(arcade.Window):
         os.chdir(file_path)
 
         # Sprite lists
-        self.wall_list = None
+
 
 
     def setup(self):
 
         """ Set up the game and initialize the variables. """
 
-        # initializing Sprite lists
-        #hero.player_list = arcade.SpriteList()
-        self.wall_list = arcade.SpriteList()
         # Set the background color
         arcade.set_background_color(arcade.color.ANTI_FLASH_WHITE)
-        self.view_left = 0
-        self.view_bottom = 0
 
-        for x in range(200, 1650, 210):
-            for y in range(0, 1000, 64):
-                # Randomly skip a box so the player can find a way through
-                if random.randrange(5) > 0:
-                    wall = arcade.Sprite("20181115_170016.jpg", 0.04)
-                    wall.center_x = x
-                    wall.center_y = y
-                    self.wall_list.append(wall)
-        hero.spriteDeclare(picture = "20181115_170016.jpg", size = 0.04, x = 64, y = 270)
-
-        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, self.wall_list)
+        #Set up the Sprites
+        wall.spriteDeclare("20181115_170016.jpg", 0.04, 450, 550)
+        hero.spriteDeclare(picture = "20181115_170016.jpg", size = 0.02, x = 64, y = 270)
+        #make the two sprites interact
+        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,wall.object_list)
     def on_draw(self):
         """
         Render the screen.
@@ -65,9 +54,9 @@ class MyGame(arcade.Window):
         arcade.start_render()
 
         # Draw all the sprites.
-        self.wall_list.draw()
-        hero.player_list.draw()
 
+        hero.player_list.draw()
+        wall.object_list.draw()
         text1.showDisplay((hero.player_sprite._get_center_y() > 40))
 
 
