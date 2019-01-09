@@ -3,7 +3,7 @@
 
 import os
 import random
-
+import displayText
 import arcade
 
 import Character
@@ -13,6 +13,7 @@ SCREEN_HEIGHT = 950
 
 MOVEMENT_SPEED = 5
 hero = Character.Hero("name", "sex")
+text1 = displayText.displayText("hi")
 
 class MyGame(arcade.Window):
     """ Main application class. """
@@ -53,7 +54,7 @@ class MyGame(arcade.Window):
                     wall.center_y = y
                     self.wall_list.append(wall)
         hero.spriteDeclare(picture = "20181115_170016.jpg", size = 0.04, x = 64, y = 270)
-
+        text1.spriteDeclare("textbox.png",1, 870, 70)
         hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, self.wall_list)
     def on_draw(self):
         """
@@ -66,8 +67,10 @@ class MyGame(arcade.Window):
         # Draw all the sprites.
         self.wall_list.draw()
         hero.player_list.draw()
+        
+        text1.showDisplay((hero.player_sprite._get_center_y() > 40))
 
-
+        arcade.draw_text("qwqw", 10, 20, arcade.color.BLACK, 14)
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
 
