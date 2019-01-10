@@ -95,7 +95,7 @@ class MyGame(arcade.Window):
             self.current_room = 1
         self.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,
                                                          self.rooms[self.current_room].wall_list)
-        self.player_sprite.center_x = 0
+        self.player_sprite.gitcenter_x = 0
         elif hero.player_sprite._get_center_x < 0 and self.current_room == 1:
         self.current_room = 0
         self.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,
