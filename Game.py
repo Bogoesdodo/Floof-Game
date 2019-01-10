@@ -41,8 +41,8 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.ANTI_FLASH_WHITE)
 
         #Set up the Sprites
-        wall.spriteDeclare("20181115_170016.jpg", 0.04, 450, 550)
-        hero.spriteDeclare(picture = "20181115_170016.jpg", size = 0.02, x = 64, y = 270)
+        wall.spriteDeclare("20181115_170016.jpg", 0.24, 450, 550)
+        hero.spriteDeclare(picture = "20181115_170016.jpg", size = 0.04, x = 64, y = 270)
         #make the two sprites interact
         hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,wall.object_list)
     def on_draw(self):
