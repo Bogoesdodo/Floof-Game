@@ -7,6 +7,7 @@ import displayText
 import arcade
 import Decor
 import Character
+import Portal
 
 SCREEN_WIDTH = 1150
 SCREEN_HEIGHT = 950
@@ -15,6 +16,9 @@ MOVEMENT_SPEED = 5
 hero = Character.Hero("name", "sex")
 text1 = displayText.displayText("superdupercomputer", 870, 870)
 wall = Decor.Decor("tree")
+
+# Our starting room number
+        self.current_room = 0
 class MyGame(arcade.Window):
     """ Main application class. """
 
@@ -30,7 +34,6 @@ class MyGame(arcade.Window):
         os.chdir(file_path)
 
         # Sprite lists
-
 
 
     def setup(self):
@@ -59,7 +62,6 @@ class MyGame(arcade.Window):
         wall.object_list.draw()
         text1.showDisplay((hero.player_sprite._get_center_y() > 40))
 
-
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
 
@@ -86,6 +88,19 @@ class MyGame(arcade.Window):
         # Call update on all sprites (The sprites don't do much in this
         # example though.)
         hero.physics_engine.update()
+
+        # Do some logic here to figure out what room we are in, and if we need to go
+        # to a different room.
+        if self.player_sprite.center_x > SCREEN_WIDTH and hero.current_room == 0:
+            self.current_room = 1
+        self.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,
+                                                         self.rooms[self.current_room].wall_list)
+        self.player_sprite.center_x = 0
+        elif hero.player_sprite._get_center_x < 0 and self.current_room == 1:
+        self.current_room = 0
+        self.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,
+                                                         self.rooms[self.current_room].wall_list)
+        self.player_sprite.center_x = SCREEN_WIDTH
 
 
 def main():
