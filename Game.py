@@ -8,16 +8,16 @@ import arcade
 import Decor
 import Character
 import Portal
+import Room
 
 SCREEN_WIDTH = 1150
 SCREEN_HEIGHT = 950
 
 MOVEMENT_SPEED = 5
 hero = Character.Hero("name", "sex")
-text1 = displayText.displayText("superdupercomputer", 870, 870)
-wall = Decor.Decor("tree")
+text1 = displayText.displayText("small Sam", 870, 870)
 
-portal = Portal.Portal("one", SCREEN_WIDTH, SCREEN_HEIGHT)
+portal = Portal.Portal(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 class MyGame(arcade.Window):
     """ Main application class. """
@@ -32,7 +32,7 @@ class MyGame(arcade.Window):
         # as mentioned at the top of this program.
         file_path = os.path.dirname(os.path.abspath(__file__))
         os.chdir(file_path)
-
+        self.current_room = 0
         # Sprite lists
 
 
@@ -44,10 +44,13 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.ANTI_FLASH_WHITE)
 
         #Set up the Sprites
-        wall.spriteDeclare("20181115_170016.jpg", 0.24, 450, 550)
-        hero.spriteDeclare(picture = "20181115_170016.jpg", size = 0.04, x = 64, y = 270)
+        room = Room.setup_room_1()
+        Room.rooms.append(room)
+        self.current_room = 0
+        hero.spriteDeclare(picture = "hero.png", size = 0.08, x = 64, y = 270)
         #make the two sprites interact
-        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,wall.object_list)
+        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,Room.wall.object_list)
+
     def on_draw(self):
         """
         Render the screen.
@@ -59,8 +62,12 @@ class MyGame(arcade.Window):
         # Draw all the sprites.
 
         hero.player_list.draw()
-        wall.object_list.draw()
+
         text1.showDisplay((hero.player_sprite._get_center_y() > 40))
+
+        #Draw the rooms
+
+        Room.rooms[self.current_room.wall].Room.room.wall_list.draw()
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
@@ -89,7 +96,7 @@ class MyGame(arcade.Window):
         # example though.)
         hero.physics_engine.update()
 
-        portal.roomlogic()
+        portal.roomlogic(delta_time, hero.player_sprite)
 
 def main():
     """ Main method """
