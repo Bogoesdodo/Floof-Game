@@ -17,8 +17,8 @@ hero = Character.Hero("name", "sex")
 text1 = displayText.displayText("superdupercomputer", 870, 870)
 wall = Decor.Decor("tree")
 
-# Our starting room number
-        self.current_room = 0
+portal = Portal.Portal("one", SCREEN_WIDTH, SCREEN_HEIGHT)
+
 class MyGame(arcade.Window):
     """ Main application class. """
 
@@ -89,19 +89,7 @@ class MyGame(arcade.Window):
         # example though.)
         hero.physics_engine.update()
 
-        # Do some logic here to figure out what room we are in, and if we need to go
-        # to a different room.
-        if self.player_sprite.center_x > SCREEN_WIDTH and hero.current_room == 0:
-            self.current_room = 1
-        self.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,
-                                                         self.rooms[self.current_room].wall_list)
-        self.player_sprite.gitcenter_x = 0
-        elif hero.player_sprite._get_center_x < 0 and self.current_room == 1:
-        self.current_room = 0
-        self.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite,
-                                                         self.rooms[self.current_room].wall_list)
-        self.player_sprite.center_x = SCREEN_WIDTH
-
+        portal.roomlogic()
 
 def main():
     """ Main method """
