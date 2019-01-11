@@ -67,7 +67,7 @@ class MyGame(arcade.Window):
 
         #Draw the rooms
 
-        Room.rooms[self.current_room.wall].Room.room.wall_list.draw()
+        Room.rooms[self.current_room].wall_list.draw()
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """

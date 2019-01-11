@@ -20,6 +20,6 @@ def setup_room_1():
 
     room.wall_list = arcade.SpriteList()
 
-    room.wall_list.append(wall)
+    room.wall_list.append(wall.object_sprite)
 
-    return Room
+    return room
