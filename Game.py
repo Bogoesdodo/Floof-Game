@@ -46,6 +46,7 @@ class MyGame(arcade.Window):
         #Set up the Sprites
         room = Room.setup_room_1()
         Room.rooms.append(room)
+        
         self.current_room = 0
         hero.spriteDeclare(picture = "hero.png", size = 0.08, x = 64, y = 270)
         #make the two sprites interact
