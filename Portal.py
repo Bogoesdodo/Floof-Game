@@ -3,11 +3,9 @@ import Room
 
 
 class Portal(object):
-    screenwidth = 0
-    screenheight = 0
     portal_list = None
     portal_sprite = None
-    current_room = 0
+
 
     def __init__(self, screenwidth, screenheight):
         self.screenwidth = screenwidth
@@ -16,6 +14,7 @@ class Portal(object):
         This class holds all the information about the
         different rooms.
         """
+        self.current_room = 0
 
     def roomlogic(self, delta_time, player_sprite, physics_engine):
 
