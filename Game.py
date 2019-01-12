@@ -16,8 +16,14 @@ SCREEN_HEIGHT = 950
 hero = Character.Hero("name", "sex")
 text1 = displayText.displayText("small Sam", 870, 870)
 
-portal = Portal.Portal(SCREEN_WIDTH, SCREEN_HEIGHT)
+port = Portal.Portal(SCREEN_WIDTH, SCREEN_HEIGHT)
 
+room0 = Room.setup_room_0()
+Room.rooms.append(room0)
+room1 = Room.setup_room_1()
+Room.rooms.append(room1)
+room2 = Room.setup_room_2()
+Room.rooms.append(room2)
 
 class MyGame(arcade.Window):
     """ Main application class. """
@@ -45,14 +51,11 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.ANTI_FLASH_WHITE)
         # Set up the Sprites
 
-        room = Room.setup_room_1()
-        Room.rooms.append(room)
-        room = Room.setup_room_2()
-        Room.rooms.append(room)
+
 
         hero.spriteDeclare(picture="hero.png", size=0.08, x=64, y=270)
         # make the two sprites interact
-        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, Room.rooms[portal.current_room].wall_list)
+        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, Room.rooms[Room.current_room].wall_list)
 
     def on_draw(self):
         """
@@ -70,7 +73,7 @@ class MyGame(arcade.Window):
 
         # Draw the rooms
 
-        Room.rooms[portal.current_room].wall_list.draw()
+        Room.rooms[Room.current_room].wall_list.draw()
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
@@ -99,7 +102,8 @@ class MyGame(arcade.Window):
         # example though.)
         hero.physics_engine.update()
 
-        portal.roomlogic(delta_time, hero.player_sprite, hero.physics_engine)
+        port.roomlogic(delta_time, hero.player_sprite, hero.physics_engine, room0.room_number, room1.room_number, "right")
+        port.roomlogic(delta_time, hero.player_sprite, hero.physics_engine, room0.room_number, room2.room_number, "left")
 
 def main():
     """ Main method """
