@@ -5,7 +5,7 @@ rooms = []
 wall = Decor.Decor("wall")
 wall.spriteDeclare("wall.png", 0.24, 450, 550)
 wall2 = Decor.Decor("wall2")
-wall2.spriteDeclare("james.jpg", .24, 800, 800)
+wall2.spriteDeclare("james.jpg", .24, 450, 550)
 
 
 class Room :
