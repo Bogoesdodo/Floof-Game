@@ -4,7 +4,7 @@ import arcade
 class Hero(object):
     name = ""
     gender = ""
-    movementSpeed = 5
+    movementSpeed = 20
 
     health = 100
     strength = 5
@@ -16,9 +16,6 @@ class Hero(object):
     player_list = None
     player_sprite = None
     physics_engine = None
-
-
-
 
     def __init__(self, name, sex,):
         self.name = name
