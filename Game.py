@@ -11,7 +11,7 @@ import Portal
 import Room
 
 SCREEN_WIDTH = 1150
-SCREEN_HEIGHT = 950
+SCREEN_HEIGHT = 700
 
 hero = Character.Hero("name", "sex")
 text1 = displayText.displayText("small Sam", 870, 870)
@@ -102,9 +102,9 @@ class MyGame(arcade.Window):
         # example though.)
         hero.physics_engine.update()
 
-        port.roomlogic(delta_time, hero.player_sprite, hero.physics_engine, room0.room_number, room1.room_number, "right")
-        port.roomlogic(delta_time, hero.player_sprite, hero.physics_engine, room0.room_number, room2.room_number, "left")
-
+        port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room1.room_number, "right")
+        port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room2.room_number, "bottom")
+        hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, Room.rooms[Room.current_room].wall_list)
 def main():
     """ Main method """
     window = MyGame(SCREEN_WIDTH, SCREEN_HEIGHT)
