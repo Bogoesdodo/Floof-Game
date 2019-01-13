@@ -1,5 +1,6 @@
 import arcade
 import Decor
+import NPC
 
 rooms = []
 wall = Decor.Decor("wall")
@@ -10,10 +11,12 @@ wall3 = Decor.Decor("wall")
 wall3.spriteDeclare("wall.png", 0.24, 950, 250)
 current_room = 0
 
-class Room :
+
+class Room:
     wall_list = None
     background = None
     room_number = None
+
     def __init__(self):
         self.wall_list = None
         self.background = None
@@ -34,7 +37,6 @@ def setup_room_0():
 
 
 def setup_room_1():
-
     room = Room()
     room.room_number = 1
     room.wall_list = arcade.SpriteList()
@@ -43,8 +45,8 @@ def setup_room_1():
 
     return room
 
-def setup_room_2():
 
+def setup_room_2():
     room = Room()
     room.room_number = 2
     room.wall_list = arcade.SpriteList()

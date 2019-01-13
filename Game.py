@@ -9,14 +9,18 @@ import Decor
 import Character
 import Portal
 import Room
+import NPC
 
 SCREEN_WIDTH = 950
 SCREEN_HEIGHT = 700
 
-hero = Character.Hero("name", "sex")
 text1 = displayText.displayText("small Sam", 870, 870)
 
 port = Portal.Portal(SCREEN_WIDTH, SCREEN_HEIGHT)
+
+hero = Character.setup_player()
+
+boy1 = NPC.setup_npc0()
 
 room0 = Room.setup_room_0()
 Room.rooms.append(room0)
@@ -25,16 +29,14 @@ Room.rooms.append(room1)
 room2 = Room.setup_room_2()
 Room.rooms.append(room2)
 
+
 class MyGame(arcade.Window):
     """ Main application class. """
     """ Main application class. """
 
-
-
     def __init__(self, width, height):
 
         super().__init__(width, height)
-
 
         # Set the working directory (where we expect to find files) to the same
         # directory this .py file is in. You can leave this out of your own
@@ -54,7 +56,6 @@ class MyGame(arcade.Window):
 
 
 
-        hero.spriteDeclare(picture="hero.png", size=0.08, x=64, y=270)
         # make the two sprites interact
         hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, Room.rooms[Room.current_room].wall_list)
 
@@ -71,7 +72,7 @@ class MyGame(arcade.Window):
         hero.player_list.draw()
 
         text1.showDisplay((hero.player_sprite._get_center_y() > 40))
-
+        boy1.npc_sprite.draw()
         # Draw the rooms
 
         Room.rooms[Room.current_room].wall_list.draw()
@@ -88,6 +89,15 @@ class MyGame(arcade.Window):
         elif key == arcade.key.RIGHT:
             hero.player_sprite.change_x = hero.movementSpeed
 
+        if key == arcade.key.W:
+            boy1.npc_sprite.change_y = hero.movementSpeed
+        elif key == arcade.key.S:
+            boy1.npc_sprite.change_y = -hero.movementSpeed
+        elif key == arcade.key.A:
+            boy1.npc_sprite.change_x = -hero.movementSpeed
+        elif key == arcade.key.D:
+            boy1.npc_sprite.change_x = hero.movementSpeed
+
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
 
@@ -95,6 +105,10 @@ class MyGame(arcade.Window):
             hero.player_sprite.change_y = 0
         elif key == arcade.key.LEFT or key == arcade.key.RIGHT:
             hero.player_sprite.change_x = 0
+        if key == arcade.key.W or key == arcade.key.S:
+            boy1.npc_sprite.change_y = 0
+        elif key == arcade.key.A or key == arcade.key.D:
+            boy1.npc_sprite.change_x = 0
 
     def update(self, delta_time):
         """ Movement and game logic """
@@ -102,10 +116,16 @@ class MyGame(arcade.Window):
         # Call update on all sprites (The sprites don't do much in this
         # example though.)
         hero.physics_engine.update()
+        hero.player_list.update()
+        hero.player_list.update_animation()
+        boy1.npc_list.update()
+        boy1.npc_list.update_animation()
 
         port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room1.room_number, "right")
         port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room2.room_number, "bottom")
         hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, Room.rooms[Room.current_room].wall_list)
+
+
 def main():
     """ Main method """
     window = MyGame(SCREEN_WIDTH, SCREEN_HEIGHT)

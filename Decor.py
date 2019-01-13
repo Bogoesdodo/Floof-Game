@@ -1,12 +1,12 @@
 import arcade
 
+
 class Decor(object):
-    #draw tree and what the fuck not
+    # draw tree and what the fuck not
     object = ""
     object_list = None
     object_sprite = None
     physics_engine = None
-
 
     def __init__(self, object):
         self.object = object
@@ -20,7 +20,3 @@ class Decor(object):
         self.object_sprite.center_x = x
         self.object_sprite.center_y = y
         self.object_list.append(self.object_sprite)
-
-
-
-

@@ -6,7 +6,6 @@ class Portal(object):
     portal_list = None
     portal_sprite = None
 
-
     def __init__(self, screenwidth, screenheight):
         self.screenwidth = screenwidth
         self.screenheight = screenheight
@@ -15,9 +14,6 @@ class Portal(object):
         This class holds all the information about the
         different rooms.
         """
-
-
-
 
     def roomlogic(self, delta_time, player_sprite, room1, room2, side):
 
