@@ -4,7 +4,7 @@ import arcade
 class Hero(object):
     name = ""
     gender = ""
-    movementSpeed = 20
+    movementSpeed = 10
 
     health = 100
     strength = 5

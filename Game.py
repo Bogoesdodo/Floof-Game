@@ -10,7 +10,7 @@ import Character
 import Portal
 import Room
 
-SCREEN_WIDTH = 1150
+SCREEN_WIDTH = 950
 SCREEN_HEIGHT = 700
 
 hero = Character.Hero("name", "sex")
@@ -34,6 +34,7 @@ class MyGame(arcade.Window):
     def __init__(self, width, height):
 
         super().__init__(width, height)
+
 
         # Set the working directory (where we expect to find files) to the same
         # directory this .py file is in. You can leave this out of your own
@@ -66,7 +67,7 @@ class MyGame(arcade.Window):
         arcade.start_render()
 
         # Draw all the sprites.
-
+        arcade.draw_rectangle_filled(100, 200, 120, 200, arcade.color.YELLOW)
         hero.player_list.draw()
 
         text1.showDisplay((hero.player_sprite._get_center_y() > 40))
