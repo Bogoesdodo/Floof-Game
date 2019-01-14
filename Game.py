@@ -14,7 +14,7 @@ import NPC
 SCREEN_WIDTH = 950
 SCREEN_HEIGHT = 700
 
-text1 = displayText.displayText("small Sam", 870, 870)
+text1 = displayText.displayText("small Sam", 570, 270)
 
 port = Portal.Portal(SCREEN_WIDTH, SCREEN_HEIGHT)
 
