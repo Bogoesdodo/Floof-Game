@@ -1,15 +1,11 @@
 import arcade
 import Character
-all_sprite_list = None
+
 all_sprite_list = arcade.SpriteList()
 
-class npc:
+class npc(object):
     npc_list = None
     npc_sprite = None
-    #npc_sprite_front = None
-    #npc_sprite_back = None
-    #npc_sprite_right = None
-    #npc_sprite_left = None
     physics_engine = None
     name = None
     say = ""
@@ -21,8 +17,6 @@ class npc:
         self.npc_sprite = None
         self.physics_engine = None
 
-    #def interaction (self,  ):
-     #   self.interact =
 
 
 def setup_npc0():

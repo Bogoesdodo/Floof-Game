@@ -28,7 +28,7 @@ def setup_player():
     size = .5
     char = Hero("Steven","girl")
     char.player_list = arcade.SpriteList()
-    char.player_sprite = arcade.AnimatedWalkingSprite()  # ("npc1.png",0.5)
+    char.player_sprite = arcade.AnimatedWalkingSprite()
 
     char.player_sprite.stand_right_textures = []
     char.player_sprite.stand_right_textures.append(arcade.load_texture("npc1.png", scale=size))

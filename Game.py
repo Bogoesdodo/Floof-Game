@@ -14,7 +14,7 @@ import NPC
 SCREEN_WIDTH = 950
 SCREEN_HEIGHT = 700
 
-text1 = displayText.displayText("small Sam", 570, 270)
+text1 = displayText.displayText("aaron is aaron")
 
 port = Portal.Portal(SCREEN_WIDTH, SCREEN_HEIGHT)
 
@@ -68,7 +68,7 @@ class MyGame(arcade.Window):
         arcade.start_render()
 
         # Draw all the sprites.
-        arcade.draw_rectangle_filled(100, 200, 120, 200, arcade.color.YELLOW)
+        arcade.draw_rectangle_filled(100, 200, 50, 80, arcade.color.YELLOW)
         hero.player_list.draw()
 
         text1.showDisplay((hero.player_sprite._get_center_y() > 40))
