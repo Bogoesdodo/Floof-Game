@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="Portal.*" />
+          <option value="NPC.NPC" />
         </list>
       </option>
     </inspection_tool>

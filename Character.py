@@ -68,6 +68,4 @@ def setup_player():
 
     char.player_list.append(char.player_sprite)
 
-
-
     return char
