@@ -10,7 +10,7 @@ import Portal
 import Room
 import NPC
 
-SCREEN_WIDTH = 950
+SCREEN_WIDTH = 1100
 SCREEN_HEIGHT = 700
 
 text1 = displayText.displayText("aaron is aaron")
