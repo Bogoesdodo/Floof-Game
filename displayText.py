@@ -18,7 +18,7 @@ class displayText(object):
 
     def __init__(self, text, x = None, y = None):
         self.text = text
-        self.text_sprite = arcade.Sprite("textbox.png", 1)
+        self.text_sprite = arcade.Sprite("textbox.png", .25)
         if x == None:
             self.text_sprite.center_x = 870
             self.text_sprite.center_y = 70

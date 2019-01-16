@@ -67,6 +67,7 @@ def setup_npc0():
     boy.npc_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
     boy.npc_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
 
+    #how much the sprite changes
     boy.npc_sprite.texture_change_distance = 20
 
     boy.npc_sprite.center_x = 150
