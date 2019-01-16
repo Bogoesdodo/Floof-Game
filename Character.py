@@ -11,7 +11,7 @@ class Hero(object):
     dexterity = 5
     intelligence = 5
     luck = 5
-
+    space_key = False
     player_list = None
     player_sprite = None
     physics_engine = None

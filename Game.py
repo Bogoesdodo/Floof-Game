@@ -29,6 +29,8 @@ room2 = Room.setup_room_2()
 Room.rooms.append(room2)
 
 
+
+
 class MyGame(arcade.Window):
     """ Main application class. """
     """ Main application class. """
@@ -71,7 +73,7 @@ class MyGame(arcade.Window):
         hero.player_list.draw()
 
         text1.showDisplay((hero.player_sprite._get_center_y() > 40))
-        NPC.interact(arcade.get_distance_between_sprites(hero.player_sprite, boy1.npc_sprite))
+        NPC.interact(arcade.get_distance_between_sprites(hero.player_sprite, boy1.npc_sprite),hero.space_key, boy1.text)
         boy1.npc_sprite.draw()
         # Draw the rooms
 
@@ -81,6 +83,7 @@ class MyGame(arcade.Window):
         """Called whenever a key is pressed. """
 
         if key == arcade.key.UP:
+
             hero.player_sprite.change_y = hero.movementSpeed
         elif key == arcade.key.DOWN:
             hero.player_sprite.change_y = -hero.movementSpeed
@@ -97,6 +100,11 @@ class MyGame(arcade.Window):
             boy1.npc_sprite.change_x = -hero.movementSpeed
         elif key == arcade.key.D:
             boy1.npc_sprite.change_x = hero.movementSpeed
+        if key == arcade.key.SPACE:
+            hero.space_key = True
+
+
+
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """

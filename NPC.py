@@ -5,7 +5,9 @@ import displayText
 
 all_sprite_list = arcade.SpriteList()
 
-text2 = displayText.displayText("hello", 60, 60)
+
+
+
 
 class npc(object):
     npc_list = None
@@ -14,13 +16,20 @@ class npc(object):
     name = None
     say = None
     interact = False
-
+    text = None
 
     def __init__(self, name, say):
         self.name = name
         self.npc_list = None
         self.npc_sprite = None
         self.physics_engine = None
+
+
+
+def interact(distance, space, text):
+    if distance < 140.00 and space:
+        text.showDisplay(True)
+
 
 def setup_npc0():
     size = .5
@@ -63,13 +72,10 @@ def setup_npc0():
     boy.npc_sprite.center_x = 150
     boy.npc_sprite.center_y = 200
     boy.npc_sprite.scale = .08
-
+    boy.text = displayText.displayText("hello", 60, 60)
     boy.npc_list.append(boy.npc_sprite)
     all_sprite_list.append(boy.npc_sprite)
 
     return boy
 
-def interact(distance):
-    if distance < 140.00:
-        text2.showDisplay(True)
 
