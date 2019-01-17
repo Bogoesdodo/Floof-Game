@@ -2,6 +2,7 @@ import arcade
 import time
 import sys
 
+delta_time = 0.0
 # print text letter by letter
 def delay_print(text, delay):
     for i in text:
@@ -38,7 +39,8 @@ class displayText(object):
 
 
 
-
+    def get_delta_time(self):
+        self.de
     def showDisplay (self, display):
         #makes texts into a array, Str = Array of strings "small sam" = "small", "sam"
         splitText = self.text.split()

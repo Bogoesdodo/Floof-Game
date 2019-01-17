@@ -132,6 +132,7 @@ class MyGame(arcade.Window):
         port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room1.room_number, "right")
         port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room2.room_number, "bottom")
         hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, Room.rooms[Room.current_room].wall_list)
+        displayText.
 
 
 
