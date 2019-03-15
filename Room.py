@@ -31,7 +31,7 @@ def setup_room_0():
     room.room_number = 0
     room.wall_list = arcade.SpriteList()
 
-    room.wall_list.append(wall.object_sprite)
+    #room.wall_list.append(wall.object_sprite)
 
     return room
 

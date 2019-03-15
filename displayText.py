@@ -38,9 +38,6 @@ class displayText(object):
         self.text_sprite.center_y = y
 
 
-
-    def get_delta_time(self):
-        self.de
     def showDisplay (self, display):
         #makes texts into a array, Str = Array of strings "small sam" = "small", "sam"
         splitText = self.text.split()

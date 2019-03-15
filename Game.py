@@ -9,11 +9,15 @@ import Character
 import Portal
 import Room
 import NPC
+import story
+import time
 
 SCREEN_WIDTH = 1100
 SCREEN_HEIGHT = 700
 
+
 text1 = displayText.displayText("aaron is aaron")
+text2 = displayText.displayText("")
 
 port = Portal.Portal(SCREEN_WIDTH, SCREEN_HEIGHT)
 
@@ -28,7 +32,11 @@ Room.rooms.append(room1)
 room2 = Room.setup_room_2()
 Room.rooms.append(room2)
 
-
+def countdown(n):
+    while n > 0:
+        n = n - 1
+    if n <= 0:
+        text1.showDisplay(True)
 
 
 class MyGame(arcade.Window):
@@ -69,12 +77,12 @@ class MyGame(arcade.Window):
         arcade.start_render()
 
         # Draw all the sprites.
-        arcade.draw_rectangle_filled(100, 200, 50, 80, arcade.color.YELLOW)
         hero.player_list.draw()
 
-        text1.showDisplay((hero.player_sprite._get_center_y() > 40))
+        countdown(5)
+
         NPC.interact(arcade.get_distance_between_sprites(hero.player_sprite, boy1.npc_sprite),hero.space_key, boy1.text)
-        boy1.npc_sprite.draw()
+        #boy1.npc_sprite.draw()
         # Draw the rooms
 
         Room.rooms[Room.current_room].wall_list.draw()
@@ -104,8 +112,6 @@ class MyGame(arcade.Window):
             hero.space_key = True
 
 
-
-
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
 
@@ -132,10 +138,6 @@ class MyGame(arcade.Window):
         port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room1.room_number, "right")
         port.roomlogic(delta_time, hero.player_sprite, room0.room_number, room2.room_number, "bottom")
         hero.physics_engine = arcade.PhysicsEngineSimple(hero.player_sprite, Room.rooms[Room.current_room].wall_list)
-        displayText.
-
-
-
 
 def main():
     """ Main method """

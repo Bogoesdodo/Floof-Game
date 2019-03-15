@@ -32,7 +32,7 @@ def interact(distance, space, text):
 
 
 def setup_npc0():
-    size = .5
+    size = .0
     boy = npc("Steven", "hello there")
     boy.npc_list = arcade.SpriteList()
     boy.npc_sprite = arcade.AnimatedWalkingSprite()  # ("npc1.png",0.5)
