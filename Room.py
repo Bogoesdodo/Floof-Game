@@ -4,11 +4,11 @@ import NPC
 
 rooms = []
 wall = Decor.Decor("wall")
-wall.spriteDeclare("wall.png", 0.24, 450, 550)
+wall.spriteDeclare("sprites/wall.png", 0.24, 450, 550)
 wall2 = Decor.Decor("wall2")
 wall2.spriteDeclare("james.jpg", .24, 450, 550)
 wall3 = Decor.Decor("wall")
-wall3.spriteDeclare("wall.png", 0.24, 950, 250)
+wall3.spriteDeclare("sprites/wall.png", 0.24, 950, 250)
 current_room = 0
 
 

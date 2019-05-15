@@ -4,7 +4,7 @@ import Room
 class Hero(object):
     name = ""
     gender = ""
-    movementSpeed = 10
+    movementSpeed = 1
 
     health = 100
     strength = 5
@@ -25,40 +25,40 @@ class Hero(object):
         self.physics_engine = None
 
 def setup_player():
-    size = .5
+    size = 10
     char = Hero("Steven","girl")
     char.player_list = arcade.SpriteList()
     char.player_sprite = arcade.AnimatedWalkingSprite()
 
     char.player_sprite.stand_right_textures = []
-    char.player_sprite.stand_right_textures.append(arcade.load_texture("npc1.png", scale=size))
+    char.player_sprite.stand_right_textures.append(arcade.load_texture("sprites/Male player/right.png", scale=size))
 
     char.player_sprite.stand_left_textures = []
-    char.player_sprite.stand_left_textures.append(arcade.load_texture("wall.png", scale=size))
+    char.player_sprite.stand_left_textures.append(arcade.load_texture("sprites/Male player/left.png", scale=size))
 
     char.player_sprite.walk_right_textures = []
-    char.player_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
-    char.player_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
-    char.player_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
-    char.player_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
+    char.player_sprite.walk_right_textures.append(arcade.load_texture("sprites/Male player/right1.png", scale=size))
+    char.player_sprite.walk_right_textures.append(arcade.load_texture("sprites/Male player/right2.png", scale=size))
+    char.player_sprite.walk_right_textures.append(arcade.load_texture("sprites/Male player/right1.png", scale=size))
+    char.player_sprite.walk_right_textures.append(arcade.load_texture("sprites/Male player/right2.png", scale=size))
 
     char.player_sprite.walk_left_textures = []
-    char.player_sprite.walk_left_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_left_textures.append(arcade.load_texture("npc1.png", scale=size))
-    char.player_sprite.walk_left_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_left_textures.append(arcade.load_texture("hero.png", scale=size))
+    char.player_sprite.walk_left_textures.append(arcade.load_texture("sprites/Male player/left1.png", scale=size))
+    char.player_sprite.walk_left_textures.append(arcade.load_texture("sprites/Male player/left2.png", scale=size))
+    char.player_sprite.walk_left_textures.append(arcade.load_texture("sprites/Male player/left1.png", scale=size))
+    char.player_sprite.walk_left_textures.append(arcade.load_texture("sprites/Male player/left2.png", scale=size))
 
     char.player_sprite.walk_up_textures = []
-    char.player_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
+    char.player_sprite.walk_up_textures.append(arcade.load_texture("sprites/Male player/up1.png", scale=size))
+    char.player_sprite.walk_up_textures.append(arcade.load_texture("sprites/Male player/up2.png", scale=size))
+    char.player_sprite.walk_up_textures.append(arcade.load_texture("sprites/Male player/up1.png", scale=size))
+    char.player_sprite.walk_up_textures.append(arcade.load_texture("sprites/Male player/up2.png", scale=size))
 
     char.player_sprite.walk_down_textures = []
-    char.player_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
-    char.player_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
+    char.player_sprite.walk_down_textures.append(arcade.load_texture("sprites/Male player/down1.png", scale=size))
+    char.player_sprite.walk_down_textures.append(arcade.load_texture("sprites/Male player/down2.png", scale=size))
+    char.player_sprite.walk_down_textures.append(arcade.load_texture("sprites/Male player/down1.png", scale=size))
+    char.player_sprite.walk_down_textures.append(arcade.load_texture("sprites/Male player/down2.png", scale=size))
 
     char.player_sprite.texture_change_distance = 20
 

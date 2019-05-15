@@ -35,37 +35,37 @@ def setup_npc0():
     size = .0
     boy = npc("Steven", "hello there")
     boy.npc_list = arcade.SpriteList()
-    boy.npc_sprite = arcade.AnimatedWalkingSprite()  # ("npc1.png",0.5)
+    boy.npc_sprite = arcade.AnimatedWalkingSprite()  # ("sprites/npc1.png",0.5)
 
     boy.npc_sprite.stand_right_textures = []
-    boy.npc_sprite.stand_right_textures.append(arcade.load_texture("npc1.png", scale=size))
+    boy.npc_sprite.stand_right_textures.append(arcade.load_texture("sprites/npc1.png", scale=size))
 
     boy.npc_sprite.stand_left_textures = []
-    boy.npc_sprite.stand_left_textures.append(arcade.load_texture("wall.png", scale=size))
+    boy.npc_sprite.stand_left_textures.append(arcade.load_texture("sprites/wall.png", scale=size))
 
     boy.npc_sprite.walk_right_textures = []
-    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
-    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
-    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
-    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("npc1.png", scale=size * 5))
+    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("sprites/npc1.png", scale=size * 5))
+    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("sprites/npc1.png", scale=size * 5))
+    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("sprites/npc1.png", scale=size * 5))
+    boy.npc_sprite.walk_right_textures.append(arcade.load_texture("sprites/npc1.png", scale=size * 5))
 
     boy.npc_sprite.walk_left_textures = []
-    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("npc1.png", scale=size))
-    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("hero.png", scale=size))
+    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("sprites/npc1.png", scale=size))
+    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_left_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
 
     boy.npc_sprite.walk_up_textures = []
-    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("hero.png", scale=size))
+    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_up_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
 
     boy.npc_sprite.walk_down_textures = []
-    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
-    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("hero.png", scale=size))
+    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
+    boy.npc_sprite.walk_down_textures.append(arcade.load_texture("sprites/hero.png", scale=size))
 
     #how much the sprite changes
     boy.npc_sprite.texture_change_distance = 20
