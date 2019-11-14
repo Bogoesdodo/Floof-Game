@@ -9,6 +9,8 @@ wall2 = Decor.Decor("wall2")
 wall2.spriteDeclare("james.jpg", .24, 450, 550)
 wall3 = Decor.Decor("wall")
 wall3.spriteDeclare("sprites/wall.png", 0.24, 950, 250)
+tree = Decor.Decor("tree")
+tree.spriteDeclare("sprites/tree.png", .1, 300, 300)
 current_room = 0
 
 
@@ -30,8 +32,7 @@ def setup_room_0():
     room = Room()
     room.room_number = 0
     room.wall_list = arcade.SpriteList()
-
-    #room.wall_list.append(wall.object_sprite)
+    room.wall_list.append(tree.object_sprite)
 
     return room
 
